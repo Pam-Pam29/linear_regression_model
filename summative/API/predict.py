@@ -27,18 +27,34 @@ app.add_middleware(
 
 # 4. Helper function to convert categorical input to numbers/one-hot
 def preprocess_input(data: InsuranceInput):
-    # Sex: 'female'->0, 'male'->1
-    sex = 1 if data.sex.lower() == 'male' else 0
-    # Smoker: 'yes'->1, 'no'->0
-    smoker = 1 if data.smoker.lower() == 'yes' else 0
+    # Sex one-hot encoding
+    sex_female = 1 if data.sex.lower() == 'female' else 0
+    sex_male = 1 if data.sex.lower() == 'male' else 0
+
+    # Smoker one-hot encoding
+    smoker_no = 1 if data.smoker.lower() == 'no' else 0
+    smoker_yes = 1 if data.smoker.lower() == 'yes' else 0
+
     # Region one-hot encoding
+    region_northeast = 1 if data.region.lower() == 'northeast' else 0
     region_northwest = 1 if data.region.lower() == 'northwest' else 0
     region_southeast = 1 if data.region.lower() == 'southeast' else 0
     region_southwest = 1 if data.region.lower() == 'southwest' else 0
-    # Northeast is all zeros
-    return np.array([[data.age, sex, data.bmi, data.children, smoker,
-                      region_northwest, region_southeast, region_southwest]])
 
+    # Return features in the exact order your model expects
+    return np.array([[
+        data.age,
+        data.bmi,
+        data.children,
+        sex_female,
+        sex_male,
+        smoker_no,
+        smoker_yes,
+        region_northeast,
+        region_northwest,
+        region_southeast,
+        region_southwest
+    ]])
 # 5. Prediction endpoint
 @app.post("/predict")
 def predict(input: InsuranceInput):
