@@ -1,16 +1,25 @@
-# insurance_predictor_flutter_app
+# Cora - Your Health Insurance Predictor
 
-A new Flutter project.
+Cora is a friendly Flutter app that gives you a quick, personalized estimate of your annual health insurance charges.
 
-## Getting Started
+## Features
+- Clean, modern, and accessible UI
+- Easy-to-use prediction form
+- Personalized results page with rotating health tips
+- Error handling and loading feedback
+- Works with a FastAPI backend for real-time predictions
 
-This project is a starting point for a Flutter application.
+## How to Run
+1. Make sure the FastAPI backend is running (see `summative/API` for details).
+2. In this directory, run:
+   ```
+   flutter pub get
+   flutter run
+   ```
+3. Use the app to enter your details and get your insurance estimate!
 
-A few resources to get you started if this is your first Flutter project:
+## Note
+- The app requires the backend API to be running and accessible at the configured address (default: `http://10.0.2.2:8000/predict` for Android emulator).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+**Author:** Pam-Pam29
