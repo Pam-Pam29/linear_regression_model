@@ -11,7 +11,7 @@ class InsuranceInput(BaseModel):
     bmi: float = Field(..., ge=10, le=60, description="BMI (10-60)")
     children: int = Field(..., ge=0, le=10, description="Number of children (0-10)")
     smoker: str = Field(..., description="Smoker: 'yes' or 'no'")
-    region: str = Field(..., description="Region: 'northeast', 'northwest', 'southeast', or 'southwest'")
+    # region field removed
 
 # 2. Create the FastAPI app
 app = FastAPI()
@@ -26,6 +26,8 @@ app.add_middleware(
 )
 
 # 4. Helper function to convert categorical input to numbers/one-hot
+# Remove region one-hot encoding
+
 def preprocess_input(data: InsuranceInput):
     # Sex one-hot encoding
     sex_female = 1 if data.sex.lower() == 'female' else 0
@@ -35,13 +37,7 @@ def preprocess_input(data: InsuranceInput):
     smoker_no = 1 if data.smoker.lower() == 'no' else 0
     smoker_yes = 1 if data.smoker.lower() == 'yes' else 0
 
-    # Region one-hot encoding
-    region_northeast = 1 if data.region.lower() == 'northeast' else 0
-    region_northwest = 1 if data.region.lower() == 'northwest' else 0
-    region_southeast = 1 if data.region.lower() == 'southeast' else 0
-    region_southwest = 1 if data.region.lower() == 'southwest' else 0
-
-    # Return features in the exact order your model expects
+    # Return features in the exact order your model expects (without region)
     return np.array([[
         data.age,
         data.bmi,
@@ -49,18 +45,14 @@ def preprocess_input(data: InsuranceInput):
         sex_female,
         sex_male,
         smoker_no,
-        smoker_yes,
-        region_northeast,
-        region_northwest,
-        region_southeast,
-        region_southwest
+        smoker_yes
     ]])
 # 5. Prediction endpoint
 @app.post("/predict")
 def predict(input: InsuranceInput):
     # Load scaler and model
-    scaler = joblib.load("insurance_scaler.joblib")
-    model = joblib.load("insurance_best_model.joblib")
+    scaler = joblib.load("cora_scaler.joblib")
+    model = joblib.load("cora_best_model.joblib")
     # Preprocess input
     X = preprocess_input(input)
     X_scaled = scaler.transform(X)
