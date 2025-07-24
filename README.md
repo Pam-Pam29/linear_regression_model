@@ -10,8 +10,8 @@ Cora helps users estimate their annual health insurance charges quickly and easi
 
   ## Feature Engineering
 - **Removed 'region' column:** The original dataset included a 'region' feature representing US regions. Since this is not relevant for an African context and could introduce bias, it was removed from both the training data and the deployed model.
-- **Categorical encoding:** The 'sex' and 'smoker' columns were converted to numeric values using one-hot encoding. This allows the model to interpret these categories without imposing an ordinal relationship.
-- **Feature scaling:** All numeric features (age, bmi, children) were standardized using StandardScaler to ensure equal contribution to the model and improve convergence.
+- **Categorical encoding:** The 'sex' and 'smoker' columns were converted to numeric values using one-hot encoding.
+- **Feature scaling:** All numeric features (age, bmi, children) were standardized using StandardScaler to ensure equal contribution to the model.
 - **Final feature vector:** Each prediction uses the following features: age, bmi, children, sex_female, sex_male, smoker_no, smoker_yes.
 
 
