@@ -25,8 +25,8 @@ To make the model more relevant for the African context, the 'region' feature wa
 
 ## Public API Endpoint
 A publicly available API endpoint returns predictions given input values. You can test it using Swagger UI:
-- **API URL:** [https://your-public-api-url/predict](https://your-public-api-url/predict) (replace with your deployed endpoint)
-- **Swagger UI:** [https://your-public-api-url/docs](https://your-public-api-url/docs)
+- **API URL:** [https://linear-regression-model-4ns8.onrender.com/predict](https://linear-regression-model-4ns8.onrender.com/predict)
+- **Swagger UI:** [https://linear-regression-model-4ns8.onrender.com/docs](https://linear-regression-model-4ns8.onrender.com/docs)
 
 ## YouTube Video Demo
 Watch a short demo of Cora in action:

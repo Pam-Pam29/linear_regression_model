@@ -191,7 +191,7 @@ class _PredictionPageState extends State<PredictionPage> {
         ),
       ),
     );
-    final url = Uri.parse('http://10.0.2.2:8000/predict'); // Use 10.0.2.2 for Android emulator
+    final url = Uri.parse('https://linear-regression-model-4ns8.onrender.com/predict');
     try {
       final response = await http.post(
         url,
