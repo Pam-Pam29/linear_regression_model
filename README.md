@@ -8,7 +8,14 @@ Cora helps users estimate their annual health insurance charges quickly and easi
 - **Source:** [Medical Cost Personal Datasets on Kaggle](https://www.kaggle.com/datasets/mirichoi0218/insurance)
 - **Background:** This dataset contains real health insurance data, commonly used for regression modeling. It includes demographic and health-related features for individuals, along with their actual insurance charges. The dataset is not Africanized, and the 'region' feature was removed for contextual relevance.
 
-**Columns:**
+  ## Feature Engineering
+- **Removed 'region' column:** The original dataset included a 'region' feature representing US regions. Since this is not relevant for an African context and could introduce bias, it was removed from both the training data and the deployed model.
+- **Categorical encoding:** The 'sex' and 'smoker' columns were converted to numeric values using one-hot encoding. This allows the model to interpret these categories without imposing an ordinal relationship.
+- **Feature scaling:** All numeric features (age, bmi, children) were standardized using StandardScaler to ensure equal contribution to the model and improve convergence.
+- **Final feature vector:** Each prediction uses the following features: age, bmi, children, sex_female, sex_male, smoker_no, smoker_yes.
+
+
+**Columns Used:**
 | Column    | Description                                 |
 |-----------|---------------------------------------------|
 | age       | Age of the primary beneficiary              |
@@ -18,8 +25,6 @@ Cora helps users estimate their annual health insurance charges quickly and easi
 | smoker    | Smoking status: 'yes' or 'no'               |
 | charges   | Annual medical insurance charges             |
 
-## Feature Engineering
-To make the model more relevant for the African context, the 'region' feature was removed from the dataset and model. This ensures predictions are not biased by irrelevant regional categories.
 
 ## Public API Endpoint
 A publicly available API endpoint returns predictions given input values. You can test it using Swagger UI:
