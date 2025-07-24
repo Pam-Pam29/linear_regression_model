@@ -129,7 +129,7 @@ class IntroductionPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 18),
                   Text(
-                    'Cora gives a quick, personalized estimate. Give her a try!',
+                    'Hi, I am Cora and I give you a quick personalized estimate. Give me a try!',
                     style: GoogleFonts.montserrat(
                       fontSize: 17,
                       color: Color(0xFF26A69A),
