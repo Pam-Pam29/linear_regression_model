@@ -1,7 +1,7 @@
 # Cora - Your Health Insurance Predictor
 
 ## Mission & Problem Statement
-Cora helps users estimate their annual health insurance charges quickly and easily. Many people struggle to predict these costs, making it hard to plan and compare policies. Cora provides instant, personalized estimates using machine learning. This empowers users to make informed financial decisions about their health coverage.
+Cora helps users estimate their annual health insurance charges quickly and easily. Many people struggle to predict these costs, making it hard to plan and compare policies. Cora provides instant, personalized estimates using a machine learning model. This empowers users to make informed financial decisions about their health coverage.
 
 
 ## How to Run the Mobile App
@@ -13,5 +13,5 @@ Cora helps users estimate their annual health insurance charges quickly and easi
    ```
 3. Enter your details in the app to get your insurance estimate.
 
----
-**Author:** Pam-Pam29
+[---
+**Author:** Pam-Pam29](https://youtu.be/YRHmIkGouDg)
