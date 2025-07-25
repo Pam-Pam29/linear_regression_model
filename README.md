@@ -33,7 +33,7 @@ A publicly available API endpoint returns predictions given input values. You ca
 
 ## YouTube Video Demo
 Watch a short demo of Cora in action:
-- [YouTube Demo (max 5 min)](https://your-youtube-demo-link)
+- [YouTube Demo ](https://youtu.be/YRHmIkGouDg)
 
 ## How to Run the Mobile App
 1. Make sure the FastAPI backend is running and accessible at the public API URL.
